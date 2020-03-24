@@ -12,7 +12,8 @@ namespace HuffmanCodingConsole
         public Node Root { get; set; }
         public Dictionary<char, int> Frequencies = new Dictionary<char, int>();
 
-        public void Build(string source)
+        // Fa felépítése
+        public void HuffmanTreeBuild(string source)
         {
             // Frekvenciák megszámolása minden egyedi karakterre
             for (int i = 0; i < source.Length; i++)
@@ -25,12 +26,17 @@ namespace HuffmanCodingConsole
                 Frequencies[source[i]]++;
             }
 
+            // Rektordok összepárosítása a Node tömbben
             foreach (KeyValuePair<char, int> symbol in Frequencies)
             {
+                
                 nodes.Add(new Node() { Symbol = symbol.Key, Frequency = symbol.Value });
-                Console.WriteLine("Key: " + symbol.Key + " Frequency : " + symbol.Value);
+                Console.WriteLine("Key: " + symbol.Key + ", Frequency: " + Convert.ToDouble(symbol.Value) / source.Length );
+                
+                
             }
 
+            // Elemek kombinálása
             while (nodes.Count > 1)
             {
                 // Rendezett lista létrehozása (Frekvencia alapján)
@@ -38,54 +44,62 @@ namespace HuffmanCodingConsole
                 
                 if (orderedNodes.Count >= 2)
                 {
-                    // Take first two items
-                    // Kiveszi az első kettő element a rendezett tömbből
+                    // Első két elem kiválasztása
                     List<Node> taken = orderedNodes.Take(2).ToList<Node>();
 
-                    // Create a parent node by combining the frequencies
                     // Szülő node elkészítése az előbb kiválasztott kettő elem kombinálásával
                     Node parent = new Node()
-                    {
+                    {   
                         Symbol = '*',
                         Frequency = taken[0].Frequency + taken[1].Frequency,
                         Left = taken[0],
                         Right = taken[1]
                     };
 
+                    // Node listából az aktuálsan vizsgált elemek eltávolitása
                     nodes.Remove(taken[0]);
                     nodes.Remove(taken[1]);
+                    // Szülő elem hozzáadása a node listához
                     nodes.Add(parent);
                 }
-
+                // Root kiválasztása => Node első eleme
                 this.Root = nodes.FirstOrDefault();
                 
             }
 
         }
 
-        public BitArray Encode(string source)
+        // Kódolás
+        public List<int> EncodeTheSource(string source)
         {
-            List<bool> encodedSource = new List<bool>();
+            List<int> encodedSource = new List<int>();
 
+            // Elemekhez előállitja a megfelelő listát (0/1)
             for (int i = 0; i < source.Length; i++)
             {
-                List<bool> encodedSymbol = this.Root.Traverse(source[i], new List<bool>());
+                List<int> encodedSymbol = this.Root.Find(source[i], new List<int>());
                 encodedSource.AddRange(encodedSymbol);
+                // Console.WriteLine(source[i] + ":" + encodedSource[i]);
+               
+
             }
 
-            BitArray bits = new BitArray(encodedSource.ToArray());
+            //BitArray bits = new BitArray(encodedSource.ToArray());
             
-            return bits;
+            return encodedSource;
         }
 
-        public string Decode(BitArray bits)
+        // Dekódkolás
+        public string DecodeTheBits(List<int> bits)
         {
             Node current = this.Root;
             string decoded = "";
 
-            foreach (bool bit in bits)
+            for (int i = 0; i < bits.Count; i++)
             {
-                if (bit)
+
+          
+                if (bits[i] == 1)
                 {
                     if (current.Right != null)
                     {
@@ -109,6 +123,8 @@ namespace HuffmanCodingConsole
 
             return decoded;
         }
+
+        // Levél vizsgálat - Dekódoláshoz kell
 
         public bool IsLeaf(Node node)
         {

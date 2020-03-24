@@ -11,13 +11,14 @@ namespace HuffmanCodingConsole
         public Node Right { get; set; }
         public Node Left { get; set; }
 
-        public List<bool> Traverse(char symbol, List<bool> data)
+        // Keresés a Nodeokban
+        public List<int> Find(char symbol, List<int> data)
         {
             // Leaf
             if (Right == null && Left == null)
             {
                 if (symbol.Equals(this.Symbol))
-                {
+                {  
                     return data;
                 }
                 else
@@ -27,33 +28,23 @@ namespace HuffmanCodingConsole
             }
             else
             {
-                List<bool> left = null;
-                List<bool> right = null;
+                List<int> left = null;
+                List<int> right = null;
 
                 if (Left != null)
                 {
-                    List<bool> leftPath = new List<bool>();
+                    List<int> leftPath = new List<int>();
                     leftPath.AddRange(data);
-                    leftPath.Add(false);
-
-                    left = Left.Traverse(symbol, leftPath);
-                    for (int i = 0; i < leftPath.Count; i++)
-                    {
-                        Console.WriteLine("LeftPath :" + leftPath[i]);
-                    }
+                    leftPath.Add(0);
+                    left = Left.Find(symbol, leftPath);                    
                 }
 
                 if (Right != null)
                 {
-                    List<bool> rightPath = new List<bool>();
+                    List<int> rightPath = new List<int>();
                     rightPath.AddRange(data);
-                    rightPath.Add(true);
-                    right = Right.Traverse(symbol, rightPath);
-
-                    for (int i = 0; i < rightPath.Count; i++)
-                    {
-                        Console.WriteLine("RightPath :" + rightPath[i]);
-                    }
+                    rightPath.Add(1);
+                    right = Right.Find(symbol, rightPath);                   
                 }
 
                 if (left != null)

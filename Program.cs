@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using System.IO;
 
 namespace HuffmanCodingConsole
 {
@@ -10,29 +11,52 @@ namespace HuffmanCodingConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter the string:");
-            string input = Console.ReadLine();
+
+            string path = @"C:\Users\Attila\Desktop\test.txt";
+
+            string readText = File.ReadAllText(path);
+            Console.WriteLine(readText);
+
+            /*Console.WriteLine("Please enter the string:");
+            string input = Console.ReadLine();*/
             HuffmanTree huffmanTree = new HuffmanTree();
 
-            // Build the Huffman tree
-            huffmanTree.Build(input);
+
+
+            // HuffmanTreeBuild the Huffman tree
+            huffmanTree.HuffmanTreeBuild(readText);
 
             // Encode
-            BitArray encoded = huffmanTree.Encode(input);
-
+            List<int> encoded = huffmanTree.EncodeTheSource(readText);
+        
             Console.Write("Encoded: ");
-            foreach (bool bit in encoded)
+            for (int i = 0; i < encoded.Count; i++)
             {
-                Console.Write((bit ? 1 : 0) + "");
-            }
-            Console.WriteLine();
+                Console.Write((encoded[i]) + "");
+                
+            };
+
+            CreateTheOutputTxt(encoded);
 
             // Decode
-            string decoded = huffmanTree.Decode(encoded);
+            string decoded = huffmanTree.DecodeTheBits(encoded);
 
             Console.WriteLine("Decoded: " + decoded);
         
-            Console.ReadLine();
+            Console.ReadLine();       
+        }
+
+        public static void CreateTheOutputTxt(List<int> code)
+        {
+            TextWriter tw = new StreamWriter(@"C:\Users\Attila\Desktop\output.txt");
+            for (int i = 0; i < code.Count; i++)
+            {
+                tw.Write(code[i]);
+            }
+            Console.WriteLine("\nOutput file is done!");
+            tw.Close();
+            Console.WriteLine();
+
         }
     }
 }
