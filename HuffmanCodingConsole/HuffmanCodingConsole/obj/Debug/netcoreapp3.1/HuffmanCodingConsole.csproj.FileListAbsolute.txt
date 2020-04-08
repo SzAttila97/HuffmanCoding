@@ -1,0 +1,13 @@
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole.exe
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole.deps.json
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole.runtimeconfig.json
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole.runtimeconfig.dev.json
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole.dll
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole.pdb
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.csprojAssemblyReference.cache
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.csproj.CoreCompileInputs.cache
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.AssemblyInfoInputs.cache
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.AssemblyInfo.cs
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.dll
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.pdb
+C:\Users\Attila\source\repos\HuffmanCodingConsole\HuffmanCodingConsole\obj\Debug\netcoreapp3.1\HuffmanCodingConsole.genruntimeconfig.cache
