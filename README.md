@@ -13,3 +13,6 @@ Szilvási Attila - PILPA5
 
 A Program.cs 17. és 18. sorát annak megfelően kell változtazni, hogy hol van a ki és bemeneti file.
 
+A Peldak mappaban három futtatási példa látható. 
+Az elsőhöz egy ábrát is készítettem, az algoritmus működéséről.
+
