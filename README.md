@@ -6,7 +6,7 @@ Szilvási Attila - PILPA5
 \HuffmanCodingConsole\HuffmanCodingConsole mappában található a három elkészített C# állomány.
 
 - HuffmanTree.cs
-- Noide.cs
+- Node.cs
 - Program.cs
 
 \HuffmanCodingConsole\HuffmanCodingConsole\bin\Debug\netcoreapp3.1\HuffmanCodingConsole alkalmazást elindítva futtatható a program.
